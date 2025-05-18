@@ -50,7 +50,7 @@ public class main {
 
             }
         }
-
+       /*  
         printCinema(cinema);
         Scanner input1 = new Scanner(System.in);
         
@@ -62,7 +62,7 @@ public class main {
         input1.close();
 
         ticketPricing(row, seat, rowToBook, seatToBook, cinema);
-      
+      */
         return cinema;
    }
    static void printCinema(String [][] cinema){
@@ -113,7 +113,7 @@ public class main {
             cinema[rowToBook][seatToBook] = "B";
 
             
-            printCinema(cinema);
+            // printCinema(cinema); // not required by step 4
 
         }
         else{
@@ -126,7 +126,7 @@ public class main {
 
                 System.out.println("Ticket price: $" + Math.round(ticketPrice_Front) + "\n");
                 cinema[rowToBook][seatToBook] = "B";
-                printCinema(cinema);
+                // printCinema(cinema);
             }
        
             else {
@@ -135,7 +135,7 @@ public class main {
 
                 System.out.println("Ticket price: $" + Math.round(ticketPrice_back) + "\n");
                 cinema[rowToBook][seatToBook] = "B";
-                printCinema(cinema);
+                // printCinema(cinema);
             }
         }   
     }

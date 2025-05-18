@@ -9,18 +9,24 @@ public class CinemaRoomManager {
 
         System.out.println("Enter the number of seats in each row:");
         int seat = input.nextInt();
-
+        String[][] cinema = main.Cinema(row, seat);
         while(flag){
             System.out.println("1. Show the seats");
             System.out.println("2. Buy a ticket");
             System.out.println("0. Exit");
             switch (input.nextInt()) {
                 case 1:
-                    main.printCinema(main.Cinema(row, seat));
+                    main.printCinema(cinema);
                     break;
                 case 2:
+                    System.out.println("Enter a row number:");
+                    int rowToBook = input.nextInt();
+                    System.out.println("Enter a seat number in that row:");
+                    int seatToBook = input.nextInt();
+                    main.ticketPricing(row, seat, rowToBook, seatToBook, cinema);
                     break;
                 case 0:
+                    flag = false;
                     break;
                 
             }
