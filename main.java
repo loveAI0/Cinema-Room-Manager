@@ -29,7 +29,7 @@ public class main {
 
 
    }
-   static void Cinema(int row, int seat){
+   static String[][] Cinema(int row, int seat){
         
         String[][] cinema = new String[row+1][seat+1];
         for(int i = 0; i < row + 1 ; i++ ){
@@ -63,7 +63,7 @@ public class main {
 
         ticketPricing(row, seat, rowToBook, seatToBook, cinema);
       
-
+        return cinema;
    }
    static void printCinema(String [][] cinema){
         System.out.println();
