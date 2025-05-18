@@ -104,9 +104,10 @@ public class main {
         
         double ticketPrice = 0;
         double totalSeat = row * seat;
-        
+        double income = 0;
         if(totalSeat <= 60){
             ticketPrice = 10;
+            income += 10;
             System.out.println();
 
             System.out.println("Ticket price: $" + Math.round(ticketPrice)+ "\n");
@@ -122,6 +123,7 @@ public class main {
 
             if(rowToBook <= frontRow){
                 double ticketPrice_Front = 10;
+                income += 10;
                 System.out.println();
 
                 System.out.println("Ticket price: $" + Math.round(ticketPrice_Front) + "\n");
@@ -132,7 +134,7 @@ public class main {
             else {
                 double ticketPrice_back = 8;
                 System.out.println();
-
+                income += 10;
                 System.out.println("Ticket price: $" + Math.round(ticketPrice_back) + "\n");
                 cinema[rowToBook][seatToBook] = "B";
                 // printCinema(cinema);
