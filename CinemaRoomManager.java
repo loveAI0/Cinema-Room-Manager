@@ -10,6 +10,8 @@ public class CinemaRoomManager {
         System.out.println("Enter the number of seats in each row:");
         int seat = input.nextInt();
         int totalSeat = row * seat;
+        double income = 0;
+        double total = main.totalIncome(row, seat);
         String[][] cinema = main.Cinema(row, seat);
         while(flag){
             System.out.println("1. Show the seats");
@@ -25,13 +27,15 @@ public class CinemaRoomManager {
                     int rowToBook = input.nextInt();
                     System.out.println("Enter a seat number in that row:");
                     int seatToBook = input.nextInt();
-                    main.ticketPricing(row, seat, rowToBook, seatToBook, cinema);
+                    income += main.ticketPricing(row, seat, rowToBook, seatToBook, cinema);
                     break;
                 case 3:
                     int ticketPurchased = Statistics.countTicket(cinema);
                     System.out.println("Number of purchased tickets: "+ ticketPurchased);
                     double per = ((double)ticketPurchased/totalSeat) * 100;
-                    System.out.println("Percentage: " + per);
+                    System.out.println("Percentage: " + per+"%");
+                    System.out.println("Current income: $" + income);
+                    System.out.println("Total income: $" + total);
                     
                     break;
                 case 0:
@@ -41,4 +45,5 @@ public class CinemaRoomManager {
             }
         }
     }
+    
 }

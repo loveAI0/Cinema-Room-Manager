@@ -77,9 +77,9 @@ public class main {
         }
         System.out.println();
    }
-/* 
+
    // total income from the Cinema Room
-   static void totalIncome(int row, int seat){
+   public static double totalIncome(int row, int seat){
         double total = 0;
         double ticketPrice = 0;
         double totalSeat = row * seat;
@@ -95,16 +95,18 @@ public class main {
             double ticketPrice_back = 8;
             total = seat * frontRow * ticketPrice_Front + seat * backRow * ticketPrice_back;
         }
-        System.out.println("Total income:"+"\n"+"$" + Math.round(total));
+        //System.out.println("Total income:"+"\n"+"$" + Math.round(total));
+        return total;
    }
-*/
 
-    public static void ticketPricing(int row, int seat, int rowToBook, int seatToBook, String [][] cinema){
+
+    public static double ticketPricing(int row, int seat, int rowToBook, int seatToBook, String [][] cinema){
         
         
         double ticketPrice = 0;
         double totalSeat = row * seat;
         double income = 0;
+
         if(totalSeat <= 60){
             ticketPrice = 10;
             income += 10;
@@ -139,6 +141,10 @@ public class main {
                 cinema[rowToBook][seatToBook] = "B";
                 // printCinema(cinema);
             }
-        }   
+
+        }
+        return income;
+
+        
     }
 }
