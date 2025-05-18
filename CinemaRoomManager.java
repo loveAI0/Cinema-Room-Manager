@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.String;
 public class CinemaRoomManager {
     public static void main(String[] args) {
         boolean flag = true;
@@ -23,19 +24,35 @@ public class CinemaRoomManager {
                     main.printCinema(cinema);
                     break;
                 case 2:
-                    System.out.println("Enter a row number:");
-                    int rowToBook = input.nextInt();
-                    System.out.println("Enter a seat number in that row:");
-                    int seatToBook = input.nextInt();
-                    income += main.ticketPricing(row, seat, rowToBook, seatToBook, cinema);
+                    boolean flag1 = true;
+                    while (flag1) {
+                        System.out.println();
+                        System.out.println();
+                       System.out.println("Enter a row number:");
+                       int rowToBook = input.nextInt();
+                       System.out.println("Enter a seat number in that row:");
+                    
+                       int seatToBook = input.nextInt();
+                        
+                        if(rowToBook > row || seatToBook > seat){
+                            System.out.println("Wrong input!");
+                        } 
+                        else if(cinema[rowToBook][seatToBook] == "B"){
+                            System.out.println("That ticket has already been purchased!");
+                        }
+                        else {
+                            income += main.ticketPricing(row, seat, rowToBook, seatToBook, cinema);
+                            flag1 = false;
+                        }
+                    }
                     break;
                 case 3:
                     int ticketPurchased = Statistics.countTicket(cinema);
                     System.out.println("Number of purchased tickets: "+ ticketPurchased);
                     double per = ((double)ticketPurchased/totalSeat) * 100;
-                    System.out.println("Percentage: " + per+"%");
-                    System.out.println("Current income: $" + income);
-                    System.out.println("Total income: $" + total);
+                    System.out.println("Percentage: " + String.format("%.2f",per) +"%");
+                    System.out.println("Current income: $" + Math.round(income));
+                    System.out.println("Total income: $" + Math.round(total));
                     
                     break;
                 case 0:
